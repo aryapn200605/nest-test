@@ -130,9 +130,8 @@ export class EmployeService {
                 doc.on('error', (error) => reject(error));
     
                 // Set up table headers
-                const headers = ['ID', 'Nama', 'Nomor', 'Departemen', 'Tanggal Masuk', 'Status'];
+                const headers = ['Nama', 'Nomor', 'Jabatan', 'Departemen', 'Tanggal Masuk', 'Status'];
                 const tableData = [headers, ...employes.map(e => [
-                    e.id.toString(),
                     e.name,
                     e.number,
                     e.jabatan,
@@ -142,7 +141,7 @@ export class EmployeService {
                 ])];
     
                 // Menghitung lebar kolom untuk disesuaikan
-                const columnWidths = [10, 150, 50, 100, 100, 100, 50]; // Atur lebar sesuai kebutuhan
+                const columnWidths = [150, 50, 100, 100, 100, 100, 100]; // Atur lebar sesuai kebutuhan
     
                 // Margin atas tabel
                 const startY = 50;
