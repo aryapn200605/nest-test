@@ -121,7 +121,7 @@ export class EmployeService {
             }
     
             const pdfBuffer = await new Promise<Buffer>((resolve, reject) => {
-                const doc = new PDFDocument({ bufferPages: true });
+                const doc = new PDFDocument({ bufferPages: true, size: 'letter', layout: 'landscape' });
                 const buffers: Buffer[] = [];
     
                 doc.on('data', buffers.push.bind(buffers));
@@ -144,7 +144,7 @@ export class EmployeService {
                 ])];
     
                 // Menghitung lebar kolom untuk disesuaikan
-                const columnWidths = [50, 150, 50, 100, 100, 100, 50]; // Atur lebar sesuai kebutuhan
+                const columnWidths = [10, 150, 50, 100, 100, 100, 50]; // Atur lebar sesuai kebutuhan
     
                 // Margin atas tabel
                 const startY = 50;

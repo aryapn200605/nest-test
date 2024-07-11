@@ -44,7 +44,7 @@ Gunakan URL localhost:3000 untuk semua endpoint berikut:
       "name": "John Doe",
       "number": "EMP001",
       "jabatan": "Backend Developer",
-      "department": "Tech",
+      "departement": "Tech",
       "date_of_entry": "2024-07-11",
       "photo": "https://url.com",
       "status": "tetap"
