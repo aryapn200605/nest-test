@@ -42,7 +42,7 @@ Gunakan URL localhost:3000 untuk semua endpoint berikut:
     ```json
     {
       "name": "John Doe",
-      "number": "EMP001",
+      "number": 10876,
       "jabatan": "Backend Developer",
       "departement": "Tech",
       "date_of_entry": "2024-07-11",
