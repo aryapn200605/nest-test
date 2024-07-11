@@ -35,7 +35,6 @@ export class EmployeService {
                 fs.createReadStream(filePath)
                     .pipe(csv())
                     .on('data', (row) => {
-                        console.log(row)
                         const employe = new CreateEmployeDto();
                         employe.name = row.nama;
                         employe.number = parseInt(row.nomor, 10);
@@ -114,7 +113,6 @@ export class EmployeService {
     async exportToPdf(): Promise<BaseResponse<Buffer>> {
         try {
             const employes = await this.employeRepository.find();
-            console.log(employes);
     
             if (employes.length === 0) {
                 throw new BadRequestException('Tidak ada data karyawan yang ditemukan');
