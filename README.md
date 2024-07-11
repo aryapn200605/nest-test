@@ -1,73 +1,65 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Sistem Manajemen Karyawan
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Deskripsi
+Proyek ini adalah contoh sederhana dari Sistem Manajemen Karyawan menggunakan NestJS sebagai backend API. Aplikasi ini dirancang untuk melakukan operasi CRUD (Create, Read, Update, Delete) terhadap data karyawan. Menggunakan TypeORM untuk interaksi dengan database, proyek ini spesifik menggunakan PostgreSQL sebagai basis data utama.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Fitur-fitur
+1. **CRUD Karyawan**
+   - Membuat, Membaca, Memperbarui, dan Menghapus data karyawan.
+   - Endpoint API untuk mengelola data karyawan.
 
-## Description
+2. **Informasi Karyawan**
+   - Menyimpan informasi karyawan seperti nama, nomor karyawan, jabatan, departemen, tanggal masuk, foto, dan status.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+3. **Import Data dari CSV**
+   - Kemampuan untuk mengimpor data karyawan dari file CSV ke dalam sistem.
 
-## Installation
+4. **Export Data ke PDF dan CSV**
+   - Mengeksport data karyawan ke dalam format file PDF dan CSV.
 
+## Instalasi
+1. Clone repository: `git clone https://github.com/aryapn200605/nest-test.git`
+2. Masuk ke direktori proyek: `cd nest-test`
+3. Install dependencies: `npm install`
+4. Pastikan database `db_test` telah dibuat di PostgreSQL.
+
+Pastikan untuk mengkonfigurasi koneksi database pada file `.env` sesuai dengan pengaturan database PostgreSQL Anda.
+
+
+## Menjalankan Aplikasi
 ```bash
-$ npm install
+npm run start
 ```
 
-## Running the app
+Pastikan untuk memastikan koneksi database telah terkonfigurasi dengan benar sebelum menjalankan aplikasi.
 
-```bash
-# development
-$ npm run start
+## Endpoint API
+Gunakan URL localhost:3000 untuk semua endpoint berikut:
+- **GET /employes**: Mendapatkan semua data karyawan.
+- **GET /employes/:id**: Mendapatkan data karyawan berdasarkan ID.
+- **POST /employes**: Membuat data karyawan baru.
+  - Body:
+    ```json
+    {
+      "name": "John Doe",
+      "number": "EMP001",
+      "jabatan": "Backend Developer",
+      "department": "Tech",
+      "date_of_entry": "2024-07-11",
+      "photo": "https://url.com",
+      "status": "tetap"
+    }
+    ```
+- **PUT /employes/:id**: Memperbarui data karyawan berdasarkan ID.
+  - Body (mirip dengan POST).
+- **DELETE /employes/:id**: Menghapus data karyawan berdasarkan ID.
+- **POST /employes/import-csv**: Mengimpor data menggunakan file CSV.
+- **GET /employes/csv**: Mengekspor data ke dalam file CSV.
+- **GET /employes/pdf**: Mengekspor data ke dalam file PDF.
 
-# watch mode
-$ npm run start:dev
 
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+## Teknologi yang Digunakan
+- NestJS
+- TypeScript 
+- TypeORM
+- PostgreSQL
